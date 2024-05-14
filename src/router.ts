@@ -1,7 +1,11 @@
 import { Router } from 'express'
 
-export const router = Router()
+import { createTaskController, editTaskController, getTaskController } from './controller'
 
-router.get('/task')
-router.put('/task/:id')
-router.post('/task')
+const router = Router()
+
+router.get('/', getTaskController)
+router.put('/:id', editTaskController)
+router.post('/', createTaskController)
+
+export default router
